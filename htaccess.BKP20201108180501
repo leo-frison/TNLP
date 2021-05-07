@@ -1,0 +1,12 @@
+RewriteBase /
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^(www\.)?tunotebooklp\.com
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,QSA]
+RewriteCond %{HTTP_HOST} ^dom.tunotebooklp.com [OR]
+RewriteCond %{HTTP_HOST} ^www.dom.tunotebooklp.com$
+RewriteRule ^(.*)$ http://tunotebooklp.com/inicio [R=301,L]
